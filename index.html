@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DESARROLLO DE VIDEOJUEGOS</title>
+<style>
+#miCanvas{
+	border:dotted 3px black;
+	background:blue;	
+}
+</style>
+<script>
+window.onload = function(){
+	var canvas = document.getElementById("miCanvas");
+	if(canvas && canvas.getContext){
+		var ctx = canvas.getContext("2d");
+		//Imagen
+			if(ctx){
+			var imagen = new Image();
+			//
+			function procesaImagen(){
+				ctx.drawImage(imagen,780,150,200,200);		 
+			}
+			//
+			imagen.src = "./imagenes/foto1.jpg";
+			imagen.onload = function(e){
+				procesaImagen();
+			}
+		}
+
+		if(ctx){
+			var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+			gradiente.addColorStop(0, "#ffecf8");
+			gradiente.addColorStop(0.7, "#fa25b0");
+			gradiente.addColorStop(0.8, "#c60582");
+			gradiente.addColorStop(1, "#620241");
+			
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+	}
+
+		if(ctx){
+			//Descripcion de lineas
+			ctx.lineWidth = 15;
+			ctx.strokeStyle = "black";
+			//Path h-v
+			//Z
+			ctx.beginPath();
+			ctx.moveTo(60,60);
+			ctx.lineTo(150,60);
+			ctx.lineTo(60, 150);
+			ctx.lineTo(160,150);
+			ctx.stroke();
+
+			//U
+			ctx.beginPath();
+			ctx.arc(230,100,50, 1.2*Math.PI, 1.8*Math.PI,true);
+			ctx.stroke();
+
+			//E
+			ctx.beginPath();
+			ctx.moveTo(300,60);
+			ctx.lineTo(300,150);
+			ctx.lineTo(365,150);
+			ctx.stroke();
+
+			
+			ctx.beginPath();
+			ctx.moveTo(370,60);
+			ctx.lineTo(460,60);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.moveTo(380,60);
+			ctx.lineTo(380,150);
+			ctx.lineTo(460,150);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.moveTo(380,105);
+			ctx.lineTo(440,105);
+			ctx.stroke();
+
+			//I
+			ctx.beginPath();
+			ctx.moveTo(480,50);
+			ctx.lineTo(540,150);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.moveTo(560,50);
+			ctx.lineTo(520,110);
+			ctx.stroke();
+
+			//M
+			ctx.beginPath();
+			ctx.moveTo(580,150);
+			ctx.lineTo(580,60);
+			ctx.lineTo(620,105);
+			ctx.lineTo(660,60);
+			ctx.lineTo(660,150);
+			ctx.stroke();
+
+			//A
+			ctx.beginPath();
+			ctx.moveTo(700,150);
+			ctx.lineTo(730,60);
+			ctx.lineTo(760,150);
+			ctx.lineTo(730,150);
+			ctx.stroke();
+
+			//R
+			ctx.beginPath();
+			ctx.moveTo(300,320);
+			ctx.lineTo(300,200);
+			ctx.lineTo(300,260);
+			ctx.lineTo(340,320);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(290,240,35, 0.3*Math.PI, 1.6*Math.PI,true);
+			ctx.stroke();
+
+
+			//O
+			ctx.beginPath();
+			ctx.arc(390,270,45, 0, 2*Math.PI,true);
+			ctx.stroke();
+
+			//Z
+			ctx.beginPath();
+			ctx.moveTo(450,230);
+			ctx.lineTo(530,230);
+			ctx.lineTo(450,310);
+			ctx.lineTo(540,310);
+			ctx.stroke();
+
+			//O
+			ctx.beginPath();
+			ctx.arc(600,270,45, 0, 2*Math.PI,true);
+			ctx.stroke();
+
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+
+}
+</script>
+<script>
+
+</script>
+</head>
+
+<body>
+	<h1><a href="juego.html" aling="center">JUEGA CONMIGO</a></h1>
+	<canvas id="miCanvas" width="1000px" height="400px">
+		Tu navegador no soporta CANVAS
+	</canvas>
+	
+</body>
+</html>
